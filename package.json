@@ -1,5 +1,5 @@
 {
-  "name": "door43-client",
+  "name": "door43-client-fork",
   "version": "0.9.8",
   "description": "A client library for interacting with the Door43 Resource API.",
   "main": "./lib/main.js",

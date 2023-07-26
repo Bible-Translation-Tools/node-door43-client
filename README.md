@@ -1,25 +1,12 @@
-# node-door43-client
-A client library for interacting with the [Door43](https://door43.org) Resource Catalog (eventually to be located at https://cdn.door43.org/v3/catalog.json).
+### This is a fork of [node-door43-client](https://github.com/unfoldingWord-dev/node-door43-client)
 
-> This library is still under development
+#### Local build & install
+After cloning this fork, run:
+> npm install
+> npm pack
 
-## Installation
-```
-npm install door43-client
-```
+This will generate a node package file (*.tgz) at the current directory.
+In your project, install the newly created package with:
+> npm install [path to your local package file]
 
-## CLI
-To use the cli commands you must install globally
-
-```
-npm install -g door43-client
-```
-
-Then you can generate an index and download resource containers.
-```
-door43-client index
-...
-door43-client download
-```
-
-For details on additional arguments append `-h` to the command
+*Don't forget to remove the references to the original library!*
