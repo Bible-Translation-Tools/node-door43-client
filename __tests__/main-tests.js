@@ -147,6 +147,18 @@ describe('Client', () => {
             });
     });
 
+    it('should update a target language in the right table', () => {
+        const language = {slug: 'aa', name: 'Afar', direction: 'ltr'};
+        library.isTempTargetLanguage.mockReturnValueOnce(false);
+        expect(client.updateTargetLanguage(language)).toBeTruthy();
+        expect(library.addTargetLanguage.mock.calls.length).toEqual(1);
+        expect(library.addTempTargetLanguage.mock.calls.length).toEqual(0);
+
+        library.isTempTargetLanguage.mockReturnValueOnce(true);
+        expect(client.updateTargetLanguage(language)).toBeTruthy();
+        expect(library.addTempTargetLanguage.mock.calls.length).toEqual(1);
+    });
+
     it('should index the Door43 catalog', () => {
         request.__setStatusCode = 200;
         request.__queueResponse = JSON.stringify([

@@ -264,6 +264,14 @@ describe('Library', () => {
             testUpdate('addTempTargetLanguage', 'getTargetLanguage', language, languageAlt);
         });
 
+        it('should tell temporary languages from regular ones', () => {
+            library.addTempTargetLanguage(language);
+            library.addTargetLanguage(alter(language, ['slug']));
+            expect(library.isTempTargetLanguage(language.slug)).toEqual(true);
+            expect(library.isTempTargetLanguage(language.slug + '-alt')).toEqual(false);
+            expect(library.isTempTargetLanguage('missing')).toEqual(false);
+        });
+
         it('should not add incomplete temporary target language to the database', () => {
             delete language.name;
             testIncomplete('addTempTargetLanguage', language);
